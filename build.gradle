@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -24,7 +24,7 @@ repositories {
 	}
 
 	maven {
-		url = uri('https://oss.sonatype.org/content/repositories/snapshots/')
+		url = uri('https://s01.oss.sonatype.org/content/repositories/snapshots/')
 	}
 }
 
@@ -37,7 +37,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation('org.geysermc.platform:GeyserMC_Geyser-Fabric_java-1.18:2.0.0-SNAPSHOT') {
+	compileOnly("org.geysermc:core:${project.geyser_version}") {
 		exclude group: "io.netty"
 		exclude group: "com.google.guava"
 	}
