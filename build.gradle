@@ -11,21 +11,22 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven {
-		url = uri('https://repo.opencollab.dev/maven-releases/')
-	}
-
-	maven {
-		url = uri('https://repo.opencollab.dev/maven-snapshots/')
-	}
+//	maven {
+//		url = uri('https://repo.opencollab.dev/maven-releases/')
+//	}
+//
+//	maven {
+//		url = uri('https://repo.opencollab.dev/maven-snapshots/')
+//	}
 
 	maven {
 		url = uri('https://jitpack.io')
 	}
 
-	maven {
-		url = uri('https://s01.oss.sonatype.org/content/repositories/snapshots/')
-	}
+//	maven {
+//		url = uri('https://s01.oss.sonatype.org/content/repositories/snapshots/')
+//	}
+	mavenLocal()
 }
 
 dependencies {
@@ -37,7 +38,12 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	compileOnly("org.geysermc:core:${project.geyser_version}") {
+	// Have fun getting this into your local maven <3
+	compileOnly("org.geysermc.geyser:core:${project.geyser_version}") {
+		exclude group: "io.netty"
+		exclude group: "com.google.guava"
+	}
+	compileOnly("org.geysermc.geyser:api:${project.geyser_version}") {
 		exclude group: "io.netty"
 		exclude group: "com.google.guava"
 	}

@@ -4,9 +4,7 @@
   "package": "olivermakesco.de.bmc.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BlockRegistryPopulatorMixin",
-    "GeyserSessionMixin",
-    "ItemRegistryPopulatorMixin"
+    "InjectGeyserInit"
   ],
   "injectors": {
     "defaultRequire": 1
