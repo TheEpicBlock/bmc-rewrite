@@ -13,11 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = GeyserExtensionManager.class, remap = false)
 public abstract class InjectGeyserInit {
-
-    @Shadow public abstract void enableExtension(Extension extension);
-
-    @Shadow public abstract void enable(@NonNull Extension extension);
-
     @Inject(method = "init", at = @At(value = "INVOKE", target = "Ljava/util/Map;put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"))
     public void onGeyserInit(CallbackInfo ci) {
         // TODO better way to inject into event handler. We should really set up a full extension

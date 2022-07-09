@@ -4,7 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
@@ -34,7 +34,7 @@ public class TestMod implements ModInitializer {
     }
 
     public static void debugSend(@Nullable Player playerEntity, String text) {
-        if (playerEntity != null) playerEntity.displayClientMessage(new TextComponent(text), false);
+        if (playerEntity != null) playerEntity.displayClientMessage(Component.literal(text), false);
     }
 
     private static void registerBlock(ResourceLocation id, Block block) {
